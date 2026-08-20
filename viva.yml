@@ -1,0 +1,21 @@
+version: 1
+assignment: compiled-go
+
+goals:
+  - id: spread
+    level: analyse
+    goal: >
+      Trace how your code decides which node a key lands on, and work out what
+      makes the distribution even or uneven.
+
+  - id: minimal-movement
+    level: evaluate
+    goal: >
+      Judge how many keys move when a node is removed, and defend the number
+      against the one your own code produces.
+
+  - id: replica-count
+    level: analyse
+    goal: >
+      Work out what placing a node at many points around the circle buys, and
+      what it costs.
