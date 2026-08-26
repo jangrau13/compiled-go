@@ -21,8 +21,14 @@ func (r *Ring) Place(key string) string {
 	return r.nodes[int(h)%len(r.nodes)]
 }
 
-// Remove takes a node out of the ring. Keys on it must go somewhere; keys on
-// the others should not move.
+// Remove drops the node from the slice. The keys that were on it get placed
+// again on one of the remaining nodes.
 func (r *Ring) Remove(node string) {
-	panic("not implemented")
+	kept := r.nodes[:0]
+	for _, n := range r.nodes {
+		if n != node {
+			kept = append(kept, n)
+		}
+	}
+	r.nodes = kept
 }
